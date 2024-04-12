@@ -1,0 +1,24 @@
+{
+  "name": "texteditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npm run build:tsx && npm run build:types",
+    "build:tsx": "esbuild src/TextEditor.tsx --bundle --minify --outdir=dist",
+    "build:types": "tsc --emitDeclarationOnly --jsx react --declaration --project tsconfig.json",
+    "dev": "npm run dev:prepare && esbuild App.tsx --bundle --servedir=www --outdir=www/js --watch --sourcemap",
+    "dev:prepare": "esbuild App.tsx --bundle --sourcemap --outdir=www/js"
+  },
+  "author": "MAETEL",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.77",
+    "esbuild": "0.20.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
